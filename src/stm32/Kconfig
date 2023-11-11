@@ -293,9 +293,11 @@ choice
     config STM32_CLOCK_REF_12M
         bool "12 MHz crystal"
     config STM32_CLOCK_REF_16M
-        bool "16 MHz crystal"
+        bool "16 MHz crystal" 
     config STM32_CLOCK_REF_20M
         bool "20 MHz crystal"
+    config STM32_CLOCK_REF_24M
+        bool "24 MHz crystal"
     config STM32_CLOCK_REF_25M
         bool "25 MHz crystal"
     config STM32_CLOCK_REF_INTERNAL
@@ -303,6 +305,7 @@ choice
 endchoice
 config CLOCK_REF_FREQ
     int
+    default 24000000 if STM32_CLOCK_REF_24M
     default 25000000 if STM32_CLOCK_REF_25M
     default 20000000 if STM32_CLOCK_REF_20M
     default 16000000 if STM32_CLOCK_REF_16M
