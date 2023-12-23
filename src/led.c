@@ -10,6 +10,7 @@
 #include "ctr.h" // DECL_CTR
 #include "flashcmd.h" // flashcmd_is_in_transfer
 #include "sched.h" // DECL_INIT
+#include "board/internal.h"
 
 #define WAIT_BLINK_TIME 1000000
 #define XFER_BLINK_TIME 20000
@@ -23,6 +24,7 @@ static uint32_t last_blink_time;
 void
 led_init(void)
 {
+    gpio_out_setup(GPIO('A',1), 1);
     led = gpio_out_setup(led_gpio, led_gpio_high);
     last_blink_time = timer_read_time();
 }
