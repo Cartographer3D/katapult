@@ -24,7 +24,6 @@ static uint32_t last_blink_time;
 void
 led_init(void)
 {
-    gpio_out_setup(GPIO('A',1), 1);
     led = gpio_out_setup(led_gpio, led_gpio_high);
     last_blink_time = timer_read_time();
 }
